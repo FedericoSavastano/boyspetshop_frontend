@@ -29,7 +29,7 @@ function Layout() {
 
                 <footer className='bg-orange-300 rounded-xl'>
                     <a
-                        href='https://federicosavastano.netlify.app'
+                        href='https://federicosavastano.vercel.app/'
                         target='_blank'
                         rel='noopener noreferrer'>
                         Made with 🐱 by{' '}
