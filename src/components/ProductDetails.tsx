@@ -9,7 +9,7 @@ import {
 import { deleteProduct } from '../services/ProductService';
 import { formatCurrency } from '../utils';
 
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
 type ProductDetailsProps = {

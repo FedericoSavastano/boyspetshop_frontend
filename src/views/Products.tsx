@@ -53,14 +53,19 @@ function Products() {
         setSortedProducts(products);
     }, [products]);
 
-    const handleSort = (e) => {
+    const handleSort = (event: React.MouseEvent<HTMLTableCellElement>) => {
+        const sortItem = event.currentTarget.getAttribute('data-id');
+        if (sortItem == null) return;
+
         if (sortToggle)
             setSortedProducts(
                 sortedProducts.sort(function (a, b) {
-                    if (b[e.target.id] > a[e.target.id]) {
+                    // @ts-expect-error let it be any
+                    if (b[sortItem] > a[sortItem]) {
                         return -1;
                     }
-                    if (b[e.target.id] < a[e.target.id]) {
+                    // @ts-expect-error let it be any
+                    if (b[sortItem] < a[sortItem]) {
                         return 1;
                     }
                     return 0;
@@ -69,10 +74,12 @@ function Products() {
         else {
             setSortedProducts(
                 sortedProducts.sort(function (a, b) {
-                    if (b[e.target.id] < a[e.target.id]) {
+                    // @ts-expect-error let it be any
+                    if (b[sortItem] < a[sortItem]) {
                         return -1;
                     }
-                    if (b[e.target.id] > a[e.target.id]) {
+                    // @ts-expect-error let it be any
+                    if (b[sortItem] > a[sortItem]) {
                         return 1;
                     }
                     return 0;
@@ -103,49 +110,49 @@ function Products() {
                         <tr>
                             <th
                                 className='p-2 cursor-pointer hover:bg-slate-800'
-                                id='name'
-                                onClick={(e) => handleSort(e)}>
+                                data-id='name'
+                                onClick={handleSort}>
                                 Name
                             </th>
                             <th
                                 className='p-2 cursor-pointer hover:bg-slate-800'
-                                id='price'
-                                onClick={(e) => handleSort(e)}>
+                                data-id='price'
+                                onClick={handleSort}>
                                 Price
                             </th>
                             <th
                                 className='p-2 cursor-pointer hover:bg-slate-800'
-                                id='category'
-                                onClick={(e) => handleSort(e)}>
+                                data-id='category'
+                                onClick={handleSort}>
                                 Category
                             </th>
                             <th
                                 className='p-2 cursor-pointer hover:bg-slate-800'
-                                id='amount'
-                                onClick={(e) => handleSort(e)}>
+                                data-id='amount'
+                                onClick={handleSort}>
                                 Amount
                             </th>
                             <th
                                 className='p-2 cursor-pointer hover:bg-slate-800'
-                                id='availability'
-                                onClick={(e) => handleSort(e)}>
+                                data-id='availability'
+                                onClick={handleSort}>
                                 Availability
                             </th>
                             <th className='p-2'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/*  {sortedProducts.map((product) => (
-                            <ProductDetails
-                                product={product}
-                                key={product.id}></ProductDetails>
-                        ))}*/}
-
-                        {products.map((product) => (
+                        {sortedProducts.map((product) => (
                             <ProductDetails
                                 product={product}
                                 key={product.id}></ProductDetails>
                         ))}
+
+                        {/* {products.map((product) => (
+                            <ProductDetails
+                                product={product}
+                                key={product.id}></ProductDetails>
+                        ))}*/}
                     </tbody>
                 </table>
             </div>

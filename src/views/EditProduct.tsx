@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     Form,
     Link,
@@ -8,11 +7,7 @@ import {
     LoaderFunctionArgs,
     useLoaderData,
 } from 'react-router-dom';
-import {
-    addProduct,
-    getProductById,
-    updateProduct,
-} from '../services/ProductService';
+import { getProductById, updateProduct } from '../services/ProductService';
 import { Product } from '../types';
 import ProductForm from '../components/ProductForm';
 import ErrorMessage from '../components/ErrorMessage';
@@ -47,7 +42,7 @@ export async function action({ request, params }: ActionFunctionArgs) {
     }
 
     if (params.id !== undefined) {
-        await updateProduct(data, params.id);
+        await updateProduct(data, +params.id);
         localStorage.setItem('edited', 'edited product');
         return redirect('/');
     }

@@ -30,6 +30,7 @@ export async function addProduct(data: ProductData) {
                 amount: result.output.amount,
                 category: result.output.category,
             });
+            console.log(data);
         } else {
             throw new Error('Invalid data');
         }
