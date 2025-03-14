@@ -35,7 +35,7 @@ function Layout() {
                         Made with 🐱 by{' '}
                         <button className='rounded-md bg-amber-600 p-3 text-sm font-bold text-white shadow-sm hover:bg-amber-500 cursor-pointer'>
                             {' '}
-                            Federico Savastano
+                            Federico Savastano.
                         </button>
                     </a>
                 </footer>
