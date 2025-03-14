@@ -33,7 +33,7 @@ function Layout() {
                         target='_blank'
                         rel='noopener noreferrer'>
                         Made with 🐱 by{' '}
-                        <button className='rounded-md bg-amber-600 p-3 text-sm font-bold text-white shadow-sm hover:bg-amber-500'>
+                        <button className='rounded-md bg-amber-600 p-3 text-sm font-bold text-white shadow-sm hover:bg-amber-500 cursor-pointer'>
                             {' '}
                             Federico Savastano
                         </button>
